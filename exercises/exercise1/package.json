@@ -1,9 +1,9 @@
 {
-  "repository": "#",
-  "license": "UNLICENSED",
+  "name": "@three/exercise",
   "scripts": {
     "build": "webpack --config ./bundler/webpack.prod.js",
-    "dev": "webpack serve --config ./bundler/webpack.dev.js"
+    "dev": "webpack serve --config ./bundler/webpack.dev.js",
+    "lint": "eslint ."
   },
   "dependencies": {
     "@babel/core": "^7.17.10",

@@ -1,6 +1,6 @@
 import './style.css'
-import * as THREE from 'three'
 import gsap from 'gsap'
+import * as THREE from 'three'
 
 // Canvas
 const canvas = document.querySelector('canvas.webgl')
@@ -17,15 +17,9 @@ scene.add(mesh)
 const group = new THREE.Group()
 scene.add(group)
 
-const cube1 = new THREE.Mesh(
-  new THREE.BoxGeometry(1, 1, 1),
-  new THREE.MeshBasicMaterial({ color: 0x00ff00 })
-)
+const cube1 = new THREE.Mesh(new THREE.BoxGeometry(1, 1, 1), new THREE.MeshBasicMaterial({ color: 0x00ff00 }))
 
-const cube2 = new THREE.Mesh(
-  new THREE.BoxGeometry(1, 1, 1),
-  new THREE.MeshBasicMaterial({ color: 0xbb0000 })
-)
+const cube2 = new THREE.Mesh(new THREE.BoxGeometry(1, 1, 1), new THREE.MeshBasicMaterial({ color: 0xbb0000 }))
 
 cube2.position.x = 2
 
@@ -52,12 +46,7 @@ const sizes = {
 }
 
 // Camera
-const camera = new THREE.PerspectiveCamera(
-  75,
-  sizes.width / sizes.height,
-  0.1,
-  100
-)
+const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100)
 
 // Cursor
 const cursor = { x: 0, y: 0 }
