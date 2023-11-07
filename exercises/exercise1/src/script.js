@@ -1,6 +1,8 @@
 import './style.css'
-import gsap from 'gsap'
+import GUI from 'lil-gui'
 import * as THREE from 'three'
+
+const gui = new GUI()
 
 // Canvas
 const canvas = document.querySelector('canvas.webgl')
@@ -53,7 +55,6 @@ const cursor = { x: 0, y: 0 }
 window.addEventListener('mousemove', (event) => {
   cursor.x = -(event.clientX / sizes.width - 0.5)
   cursor.y = -(event.clientY / sizes.height - 0.5)
-  console.log(cursor)
 })
 
 const aspectRatio = sizes.width / sizes.height
@@ -70,8 +71,12 @@ renderer.render(scene, camera)
 // Clock
 const clock = new THREE.Clock()
 
-gsap.to(mesh.position, { duration: 1, delay: 1, x: 2 })
-gsap.to(mesh.position, { duration: 1, delay: 2, x: 0 })
+gui.add(mesh.position, 'y').min(-15).max(15).step(0.001).name('elevation')
+gui.add(mesh, 'visible')
+gui.add(mesh.material, 'wireframe')
+gui.addColor(mesh.material, 'color').onChange((color) => {
+  console.log('value has changed', color.getHexString())
+})
 
 // Animations
 const tick = () => {
